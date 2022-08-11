@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 //API
 import { getCoin } from '../services/api';
 
+//Components
+import Coin from './Coin';
+
 const Landing = () => {
 
     const [coins, setCoins] = useState([]);
