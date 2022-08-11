@@ -20,14 +20,16 @@ const Landing = () => {
         fetchAPI();
     }, [])
 
+    //search input
     const searchHandler = event => setSearch(event.target.value);
+    const searchCoins = coins.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()));
 
     return (
         <div>
             <input type='text' value={search} onChange={searchHandler}/>
             <div>
                 {
-                    coins.map(coin => <Coin 
+                    searchCoins.map(coin => <Coin 
                                             key={coin.id}
                                             name={coin.name}
                                             image={coin.image}
