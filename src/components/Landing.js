@@ -24,7 +24,7 @@ const Landing = () => {
                 coins.map(coin => <Coin 
                                         key={coin.id}
                                         name={coin.name}
-                                        imgage={coin.image}
+                                        image={coin.image}
                                         symbol={coin.symbol}
                                         price={coin.current_price}
                                         marketCap={coin.market_cap}
