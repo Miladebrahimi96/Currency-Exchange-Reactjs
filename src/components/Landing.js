@@ -20,7 +20,17 @@ const Landing = () => {
 
     return (
         <div>
-            
+            {
+                coins.map(coin => <Coin 
+                                        key={coin.id}
+                                        name={coin.name}
+                                        imgage={coin.image}
+                                        symbol={coin.symbol}
+                                        price={coin.current_price}
+                                        marketCap={coin.market_cap}
+                                        priceChange={coin.price_change_percentage_24h}
+                                    />)
+            }
         </div>
     );
 };
