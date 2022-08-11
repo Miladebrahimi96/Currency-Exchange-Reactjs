@@ -10,6 +10,8 @@ const Landing = () => {
 
     const [coins, setCoins] = useState([]);
 
+    const [search, setSearch] = useState("");
+
     useEffect(() => {
         const fetchAPI = async () => {
             const data = await getCoin();
@@ -18,19 +20,24 @@ const Landing = () => {
         fetchAPI();
     }, [])
 
+    const searchHandler = event => setSearch(event.target.value);
+
     return (
         <div>
-            {
-                coins.map(coin => <Coin 
-                                        key={coin.id}
-                                        name={coin.name}
-                                        image={coin.image}
-                                        symbol={coin.symbol}
-                                        price={coin.current_price}
-                                        marketCap={coin.market_cap}
-                                        priceChange={coin.price_change_percentage_24h}
-                                    />)
-            }
+            <input type='text' value={search} onChange={searchHandler}/>
+            <div>
+                {
+                    coins.map(coin => <Coin 
+                                            key={coin.id}
+                                            name={coin.name}
+                                            image={coin.image}
+                                            symbol={coin.symbol}
+                                            price={coin.current_price}
+                                            marketCap={coin.market_cap}
+                                            priceChange={coin.price_change_percentage_24h}
+                                        />)
+                }
+            </div>
         </div>
     );
 };
