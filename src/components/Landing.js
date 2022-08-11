@@ -5,6 +5,7 @@ import { getCoin } from '../services/api';
 
 //Components
 import Coin from './Coin';
+import Loading from './Loading';
 
 const Landing = () => {
 
@@ -27,19 +28,24 @@ const Landing = () => {
     return (
         <div>
             <input type='text' value={search} onChange={searchHandler}/>
-            <div>
-                {
-                    searchCoins.map(coin => <Coin 
-                                            key={coin.id}
-                                            name={coin.name}
-                                            image={coin.image}
-                                            symbol={coin.symbol}
-                                            price={coin.current_price}
-                                            marketCap={coin.market_cap}
-                                            priceChange={coin.price_change_percentage_24h}
-                                        />)
-                }
-            </div>
+            {
+                coins.length ?
+
+                    <div>
+                        {
+                            searchCoins.map(coin => <Coin 
+                                                    key={coin.id}
+                                                    name={coin.name}
+                                                    image={coin.image}
+                                                    symbol={coin.symbol}
+                                                    price={coin.current_price}
+                                                    marketCap={coin.market_cap}
+                                                    priceChange={coin.price_change_percentage_24h}
+                                                />)
+                        }
+                    </div> : 
+                    <Loading />
+            }
         </div>
     );
 };
