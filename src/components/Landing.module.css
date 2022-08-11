@@ -1,0 +1,31 @@
+.coinContainer {
+    margin: 50px auto;
+    border: 1px solid silver;
+    border-radius: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #f6f6f6;
+}
+.input {
+    width: 50px;
+    margin-top: 50px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #f6f6f6;
+    transform: all .2s ease;
+    text-align: center;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #fff;
+    background: #fff;
+    box-shadow: rgba(74, 74, 74, .24) 0px 3px 8px;
+    width: 300px;
+    transition: all .2s linear;
+}
+.input::placeholder {
+    text-align: center;
+}
